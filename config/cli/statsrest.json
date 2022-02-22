@@ -1,0 +1,28 @@
+{
+    "arguments": [
+        {
+            "map_name": "uwsgi_ini_path",
+            "data_type": "string",
+            "arg_name": "--uwsgi-ini-path",
+            "var_name": "uwsgi-ini-path",
+            "arg_type": "value",
+            "default": "OS_CWD",
+            "default_filename": "statsrest_uwsgi.ini",
+            "envar_default": "UWSGI_INI_PATH",
+            "required": false
+        }
+    ],
+    "config_maps": [
+        {
+            "map_name": "uwsgi_ini_path",
+            "map_type": "value"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "uwsgi_ini_path",
+            "type": "string",
+            "default": "statsrest_uwsgi.ini"
+        }
+    ]
+}

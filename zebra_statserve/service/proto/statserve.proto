@@ -1,0 +1,53 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+
+message StatStreamUpdate {
+    google.protobuf.Struct metadata = 1;
+    string stream_name = 2;
+    string key = 3;
+    float value = 4;
+    string bin = 5;
+}
+
+message Stream {
+    string stream_name = 1;
+    google.protobuf.Struct fields = 2;
+}
+
+message StatStreamResponse {
+    string field = 1;
+    string message = 2;
+}
+
+message StatStreamQuery {
+    string stream_name = 1;
+}
+
+message StatStreamFieldQuery {
+    string key = 1;
+    string type = 2;
+    string stat = 3;
+    string stream_name = 4;
+}
+
+message StatStreamSummary {
+    google.protobuf.Struct field_stats = 1;
+    string stream_name = 2;
+}
+
+message StatStreamFieldSummary {
+    google.protobuf.Struct metadata = 1;
+    google.protobuf.Struct stats = 2;
+    google.protobuf.Struct counts = 3;
+    google.protobuf.Struct quantiles = 4;
+    string stream_name = 5;
+}
+
+service StatStreamServer {
+    rpc AddStream (Stream) returns (StatStreamResponse) {};
+    rpc UpdateStats(StatStreamUpdate) returns (StatStreamResponse) {};
+    rpc UpdateStatsStreaming(stream StatStreamUpdate) returns (stream StatStreamResponse) {};
+    rpc GetStreamStats(StatStreamQuery) returns (StatStreamSummary) {};
+    rpc GetFieldStats (StatStreamFieldQuery) returns (StatStreamFieldSummary) {};
+    rpc GetFieldStat (StatStreamFieldQuery) returns (StatStreamFieldSummary) {};
+}

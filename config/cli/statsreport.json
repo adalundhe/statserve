@@ -1,0 +1,61 @@
+{
+    "arguments": [
+        {
+            "map_name": "reporter_config",
+            "data_type": "dict",
+            "arg_name": "--reporter-config-filepath",
+            "var_name": "reporter_config_filepath",
+            "arg_type": "file",
+            "default": "OS_CWD",
+            "default_filename": "reporter.json",
+            "required": false
+        },
+        {
+            "map_name": "stream_config",
+            "data_type": "dict",
+            "arg_name": "--streams-filepath",
+            "var_name": "streams_filepath",
+            "arg_type": "file",
+            "default": "OS_CWD",
+            "default_filename": "streams.json",
+            "required": false
+        }
+    ],
+    "config_maps": [
+        {
+            "map_name": "reporter_config",
+            "map_type": "value"
+        },
+        {
+            "map_name": "stream_config",
+            "map_type": "value"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "stream_name",
+            "type": "string",
+            "default": null
+        },
+        {
+            "name": "stream_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "fields",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "reporter_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "log_level",
+            "type": "string",
+            "default": "info"
+        }
+    ]
+}

@@ -1,0 +1,359 @@
+{
+    "arguments": [
+        {
+            "map_name": "log_level",
+            "data_type": "string",
+            "arg_name": "--log-level",
+            "var_name": "log_level",
+            "arg_type": "value",
+            "default": "info",
+            "required": false,
+            "help": "Sets log level verbosity. Options are - error, warning, info, and debug."
+        },
+        {
+            "map_name": "actions",
+            "data_type": "dict",
+            "arg_name": "--actions-filepath",
+            "var_name": "actions_filepath",
+            "arg_type": "file",
+            "default": "./actions.json",
+            "envar_default": "ACTIONS_FILEPATH",
+            "required": false,
+            "help": "The path to the actions JSON file for Hedra to load."
+        },
+        {
+            "map_name": "config",
+            "data_type": "dict",
+            "arg_name": "--config-filepath",
+            "var_name": "config_filepath",
+            "arg_type": "file",
+            "required": false,
+            "help": "The path to an optional config JSON file containing Hedra CLI arg equivalents."
+        },
+        {
+            "map_name": "execution_mode",
+            "data_type": "string",
+            "data_key": "execution_mode",
+            "arg_name": "--execution-mode",
+            "var_name": "execution_mode",
+            "arg_type": "value",
+            "default": "local",
+            "envar_default": "HEDRA_EXECUTION_MODE",
+            "required": false,
+            "help": "Determines which of Hedra's runners is used. Ex. - local, leader, worker, etc."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "string",
+            "data_key": "engine_type",
+            "arg_name": "--engine",
+            "var_name": "engine",
+            "arg_type": "value",
+            "envar_default": "HEDRA_ENGINE",
+            "default": "simple",
+            "required": false,
+            "help": "Determines the engine Hedra uses to execute actions (i.e. the type of action)."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "string",
+            "data_key": "persona_type",
+            "arg_name": "--persona",
+            "var_name": "persona",
+            "arg_type": "value",
+            "envar_default": "HEDRA_PERSONA",
+            "default": "simple",
+            "required": false,
+            "help": "Determines the persona Hedra uses to schedule, group, and organize action execution."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "string",
+            "data_key": "total_time",
+            "arg_name": "--total-time",
+            "var_name": "total_time",
+            "arg_type": "value",
+            "required": false,
+            "help": "A string of format HH:MM:SS or a integer of total seconds for which Hedra should run."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "integer",
+            "data_key": "total_actions",
+            "arg_name": "--total-actions",
+            "var_name": "total_actions",
+            "arg_type": "value",
+            "required": false,
+            "help": "The total number of actions Hedra should execute."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "integer",
+            "data_key": "batch_interval",
+            "arg_name": "--batch-interval",
+            "var_name": "batch_interval",
+            "default": 1,
+            "arg_type": "value",
+            "required": false,
+            "help": "How long Hedra should pause (in seconds) between execution of batches of actions."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "integer",
+            "data_key": "step_interval",
+            "arg_name": "--step-interval",
+            "var_name": "step_interval",
+            "arg_type": "value",
+            "required": false,
+            "help": "How long Hedra should pause (in seconds) between individual actions."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "integer",
+            "data_key": "batch_size",
+            "arg_name": "--batch-size",
+            "var_name": "batch_size",
+            "arg_type": "value",
+            "required": false,
+            "help": "The size of each batch (a grouping) of actions Hedra should execute at once."
+        },
+        {
+            "map_name": "executor_config",
+            "data_type": "integer",
+            "data_key": "pool_size",
+            "arg_name": "--pool-size",
+            "var_name": "pool_size",
+            "arg_type": "value",
+            "required": false,
+            "help": "The number of parallel workers that should be used with either the Local-Parallel or Parallel-Worker runners."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "leader_ip",
+            "arg_name": "--leader-ip",
+            "var_name": "leader_ip",
+            "arg_type": "value",
+            "default": "localhost",
+            "envar_default": "LEADER_IP",
+            "required": false,
+            "help": "The IPv4 address of a Hedra leader instance for workers to connecto to."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "integer",
+            "data_key": "leader_port",
+            "arg_name": "--leader-port",
+            "var_name": "leader_port",
+            "arg_type": "value",
+            "default": "6669",
+            "envar_default": "LEADER_PORT",
+            "required": false,
+            "help": "The port number of a Hedra leader instance for workers to connect to."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "leader_address",
+            "arg_name": "--leader-address",
+            "var_name": "leader_address",
+            "arg_type": "value",
+            "default": "http://localhost:6669",
+            "envar_default": "LEADER_ADDRESS",
+            "required": false ,
+            "help": "The full IPv4 address and port of a Hedra leader instance for workers to connect to."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "worker_ip",
+            "arg_name": "--worker-ip",
+            "var_name": "worker_ip",
+            "arg_type": "value",
+            "default": "localhost",
+            "envar_default": "WORKER_IP",
+            "required": false,
+            "help": "The IPv4 address of a worker instance, sent back to leaders if live updates are enabled."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "integer",
+            "data_key": "worker_port",
+            "arg_name": "--worker-port",
+            "var_name": "worker_port",
+            "default": "6670",
+            "envar_default": "WORKER_PORT",
+            "arg_type": "value",
+            "required": false,
+
+            "help": "The port of a worker instance, sent back to leaders if live updates are enabled."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "worker_address",
+            "arg_name": "--worker-address",
+            "var_name": "worker_address",
+            "default": "http://localhost:6670",
+            "envar_default": "WORKER_ADDRESS",
+            "arg_type": "value",
+            "required": false,
+            "help": "The IPv4 address and port of a worker instance, sent back to leaders if live updates are enabled." 
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "worker_server_ip",
+            "arg_name": "--worker-server-ip",
+            "var_name": "worker_server_ip",
+            "default": "localhost",
+            "envar_default": "WORKER_SERVER_IP",
+            "arg_type": "value",
+            "required": false,
+            "help": "The IPv4 address of a worker updates server instance, sent back to leaders if live updates are enabled."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "integer",
+            "data_key": "worker_server_port",
+            "arg_name": "--worker-server-port",
+            "var_name": "worker_server_port",
+            "default": "6671",
+            "envar_default": "WORKER_SERVER_PORT",
+            "arg_type": "value",
+            "required": false,
+
+            "help": "The port of a worker updates server instance, sent back to leaders if live updates are enabled."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "string",
+            "data_key": "worker_server_address",
+            "arg_name": "--worker-server-address",
+            "var_name": "worker_server_address",
+            "default": "http://localhost:6671",
+            "envar_default": "WORKER_SERVER_ADDRESS",
+            "arg_type": "value",
+            "required": false,
+            "help": "The IPv4 address and port of a worker updates server instance, sent back to leaders if live updates are enabled." 
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "integer",
+            "data_key": "workers",
+            "arg_name": "--workers",
+            "var_name": "workers",
+            "arg_type": "value",
+            "required": false,
+            "help": "The number of workers a leader instance should expect to register." 
+        },
+        {
+            "map_name": "embedded_stats",
+            "data_type": "boolean",
+            "arg_name": "--embedded-stats",
+            "var_name": "embedded_stats",
+            "arg_type": "flag",
+            "required": false,
+            "help": "Starts an embedded instance of Statserve prior to any other runners executing."
+        },
+        {
+            "map_name": "distributed_config",
+            "data_type": "boolean",
+            "data_key": "live_progress_updates",
+            "arg_name": "--live-progress-updates",
+            "var_name": "live_progress_updates",
+            "arg_type": "flag",
+            "required": false,
+            "help": "Enables the leader or worker's ability to intermittently fetch/calculate the number of currently completed actions."
+        },
+        {
+            "map_name": "as_server",
+            "data_type": "boolean",
+            "arg_name": "--as-server",
+            "var_name": "as_server",
+            "arg_type": "flag",
+            "required": false,
+            "help": "Used only for running hedra in Updates Server of Job Server mode. Bypass normal config options to enable these modes."
+        }
+    ],
+    "config_maps": [
+        {
+            "map_name": "config",
+            "map_type": "value"
+        },
+        {
+            "map_name": "jobs_config",
+            "map_type": "dict"
+        },
+        {
+            "map_name": "distributed_config",
+            "map_type": "dict"
+        },
+        {
+            "map_name": "executor_config",
+            "map_type": "dict"
+        },
+        {
+            "map_name": "actions",
+            "map_type": "value"
+        },
+        {
+            "map_name": "as_server",
+            "map_type": "value"
+        },
+        {
+            "map_name": "execution_mode",
+            "map_type": "value"
+        },
+        {
+            "map_name": "embedded_stats",
+            "map_type": "value"
+        },
+        {
+            "map_name": "log_level",
+            "map_type": "value"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "jobs_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "distributed_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "executor_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "actions",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "as_server",
+            "type": "dict",
+            "default": false
+        },
+        {
+            "name": "execution_mode",
+            "type": "string",
+            "default": "local"
+        },
+        {
+            "name": "embedded_stats",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "log_level",
+            "type": "string",
+            "default": "info"
+        }
+    ]
+}

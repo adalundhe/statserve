@@ -1,0 +1,2 @@
+statserve:
+  statserve_server_path: /data/server.json

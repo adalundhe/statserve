@@ -1,0 +1,110 @@
+{
+    "arguments": [
+        {
+            "map_name": "path_to_kube_config",
+            "data_type": "string",
+            "arg_name": "--kube-config",
+            "var_name": "kube_config",
+            "arg_type": "value",
+            "default": "~/.kube/config",
+            "envar_default": "KUBE_CONFIG_PATH",
+            "required": false
+        },
+        {
+            "map_name": "kdiff_config",
+            "data_type": "dict",
+            "arg_name": "--kdiff-config-filepath",
+            "var_name": "kdiff_config_filepath",
+            "arg_type": "file",
+            "default": "OS_CWD",
+            "default_filename": "kdiff.json",
+            "envar_default": "KDIFF_CONFIG_PATH",
+            "required": false
+        },
+        {
+            "map_name": "kdiff_config",
+            "data_type": "string",
+            "data_key": "matching_path",
+            "arg_name": "--matching-path",
+            "var_name": "matching_path",
+            "arg_type": "value",
+            "default": "*.yaml,*.yml",
+            "required": false
+        },
+        {
+            "map_name": "kdiff_config",
+            "data_type": "string",
+            "data_key": "files",
+            "arg_name": "--files",
+            "var_name": "files",
+            "arg_type": "value",
+            "default": "",
+            "required": false
+        },
+        {
+            "map_name": "kdiff_config",
+            "data_type": "string",
+            "data_key": "exclude_files",
+            "arg_name": "--exclude",
+            "var_name": "exclude",
+            "arg_type": "value",
+            "default": "",
+            "required": false
+        },
+        {
+            "map_name": "alt_kdiff_config",
+            "data_type": "string",
+            "arg_name": "--alt-kdiff-config",
+            "var_name": "alt_kdiff_config",
+            "arg_type": "file",
+            "envar_default": "ALT_KDIFF_CONFIG_FILEPATH",
+            "required": false
+        }
+    ],
+    "config_maps": [
+        {
+            "map_name": "path_to_kube_config",
+            "map_type": "value"
+        },
+        {
+            "map_name": "kdiff_config",
+            "map_type": "dict"
+        },
+        {
+            "map_name": "alt_kdiff_config",
+            "map_type": "value"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "path_to_kube_config",
+            "type": "string",
+            "default": null
+        },
+        {
+            "name": "pull_from_git",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "from_templates",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "from_kubectl",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "kdiff_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "alt_kdiff_config",
+            "type": "dict",
+            "default": {}
+        }
+    ]
+}

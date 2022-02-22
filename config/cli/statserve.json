@@ -1,0 +1,64 @@
+{
+    "arguments": [
+        {
+            "map_name": "streams",
+            "data_type": "list",
+            "arg_name": "--streams-filepath",
+            "var_name": "streams_filepath",
+            "arg_type": "file",
+            "default": "OS_CWD",
+            "default_filename": "streams.json",
+            "required": false
+        },
+        {
+            "map_name": "server_config",
+            "data_type": "dict",
+            "arg_name": "--server-config-filepath",
+            "var_name": "server_config_filepath",
+            "arg_type": "file",
+            "default": "OS_CWD",
+            "default_filename": "server.json",
+            "required": false
+        },
+        {
+            "map_name": "log_level",
+            "data_type": "string",
+            "arg_name": "--log-level",
+            "var_name": "log_level",
+            "arg_type": "value",
+            "default": "info",
+            "required": false
+        }
+    ],
+    "config_maps": [
+        {
+            "map_name": "streams",
+            "map_type": "value"
+        },
+        {
+            "map_name": "server_config",
+            "map_type": "value"
+        },
+        {
+            "map_name": "log_level",
+            "map_type": "value"
+        }
+    ],
+    "attributes": [
+        {
+            "name": "streams",
+            "type": "list",
+            "default": []
+        },
+        {
+            "name": "server_config",
+            "type": "dict",
+            "default": {}
+        },
+        {
+            "name": "log_level",
+            "type": "string",
+            "default": "info"
+        }
+    ]
+}

@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: hedra-files-cm
-data:
-  {{- (.Files.Glob "files/*").AsConfig | nindent 4 }}

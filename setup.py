@@ -20,14 +20,14 @@ with open(os.path.join(current_directory, 'README.md'), "r") as readme:
     package_description = readme.read()
 
 setup(
-    name="zebra-statserve",
-    version="0.5.1",
-    author="Zebra.com",
-    author_email="scorbett@thezebra.com",
-    description="Zebra-Statserve is a microservices implementation of the statstream library.",
+    name="statserve",
+    version="0.1.0",
+    author="Sean Corbett",
+    author_email="sean.corbett@umconnect.edu",
+    description="Statserve is a microservices implementation of the statstream library.",
     long_description=package_description,
     long_description_content_type="text/markdown",
-    url="https://gitlab.com/thezebra/libraries/zebra-statserve",
+    url="https://github.com/scorbettUM/statserve",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -40,15 +40,15 @@ setup(
         'grpcio-tools',
         'stringcase',
         'packaging',
-        'zebra-python-cli',
-        'zebra-automate-py-logging',
-        'zebra-statstream'
+        'pycli-tools',
+        'easy-logger',
+        'statstream'
     ],
     entry_points = {
         'statserve': 'statserve=statserve',
         'console_scripts': [
-            'statserve-server=zebra_statserve.run:run',
-            'statserve-stop=zebra_statserve.run:stop'
+            'statserve-server=statserve.run:run',
+            'statserve-stop=statserve.run:stop'
         ],
     },
     python_requires='>=3.8'

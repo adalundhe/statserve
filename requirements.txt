@@ -33,6 +33,6 @@ snowflake-connector-python
 asyncio-pool
 selenium<4.0
 zebra-file-tools
-zebra-python-cli
-zebra-automate-py-logging
-zebra-statstream
+pycli-tools
+easy-logger
+statstream

@@ -1,4 +1,4 @@
-from zebra_statserve import StatServeClient
+from statserve import StatServeClient
 
 client = StatServeClient({
   'host': 'localhost',

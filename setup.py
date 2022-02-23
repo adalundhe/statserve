@@ -1,18 +1,8 @@
 import os
-import glob
-from stat import (
-    S_IEXEC
-)
-from sys import (
-    platform,
-    executable
-)
 from setuptools import (
     setup,
     find_packages
 )
-from distutils.sysconfig import get_python_lib
-from setuptools.command.install import install
 
 current_directory = os.path.abspath(os.path.dirname(__file__))
 
@@ -21,7 +11,7 @@ with open(os.path.join(current_directory, 'README.md'), "r") as readme:
 
 setup(
     name="statserve",
-    version="0.1.0",
+    version="0.1.1",
     author="Sean Corbett",
     author_email="sean.corbett@umconnect.edu",
     description="Statserve is a microservices implementation of the statstream library.",
@@ -40,8 +30,8 @@ setup(
         'grpcio-tools',
         'stringcase',
         'packaging',
-        'pycli-tools',
-        'easy-logger',
+        'py3cli-tools',
+        'easy-logger-py',
         'statstream'
     ],
     entry_points = {

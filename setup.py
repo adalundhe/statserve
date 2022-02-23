@@ -11,7 +11,7 @@ with open(os.path.join(current_directory, 'README.md'), "r") as readme:
 
 setup(
     name="statserve",
-    version="0.1.1",
+    version="0.1.2",
     author="Sean Corbett",
     author_email="sean.corbett@umconnect.edu",
     description="Statserve is a microservices implementation of the statstream library.",
@@ -32,7 +32,7 @@ setup(
         'packaging',
         'py3cli-tools',
         'easy-logger-py',
-        'statstream'
+        'statstream-py'
     ],
     entry_points = {
         'statserve': 'statserve=statserve',

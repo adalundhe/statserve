@@ -1,9 +1,8 @@
 import grpc
 import os
-import asyncio
 import uvloop
 uvloop.install()
-from zebra_automate_logging import Logger
+from easy_logger import Logger
 from google.protobuf.json_format import (
     MessageToDict
 )
@@ -15,7 +14,7 @@ from .service.proto import (
     StatStreamServerStub
 )
 from .utils import connect_with_retry
-from zebra_async_tools.datatypes import AsyncList
+from async_tools.datatypes import AsyncList
 
 
 class StatServeClient:

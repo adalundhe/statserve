@@ -32,7 +32,7 @@ google-cloud-storage
 snowflake-connector-python
 asyncio-pool
 selenium<4.0
-zebra-file-tools
 pycli-tools
 easy-logger
+py3-async-tools
 statstream

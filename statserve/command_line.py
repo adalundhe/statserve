@@ -1,11 +1,11 @@
-from zebra_cli_tools import BaseConfig
+from pycli_tools import BaseConfig
 from importlib.metadata import version
 from .config.cli.statserve import statserve_cli
 
 class CommandLine(BaseConfig):
 
     def __init__(self):
-        super(CommandLine, self).__init__(cli=statserve_cli, package_version=version('zebra-statserve'))
+        super(CommandLine, self).__init__(cli=statserve_cli, package_version=version('statserve'))
         self.streams = []
         self.server_config = {}
         self.log_level = 'info'

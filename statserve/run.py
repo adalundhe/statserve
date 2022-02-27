@@ -1,6 +1,6 @@
 from .server import Server
 from .command_line import CommandLine
-from zebra_automate_logging import Logger
+from easy_logger import Logger
 
 command_line = CommandLine()
 stream = None

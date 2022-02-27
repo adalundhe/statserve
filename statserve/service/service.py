@@ -13,13 +13,13 @@ from .proto import (
 from google.protobuf.json_format import (
     MessageToDict
 )
-from zebra_statstream.streaming import StatStreamGroup
-from zebra_statstream.models import (
+from statstream.streaming import StatStreamGroup
+from statstream.models import (
     Event,
     Query,
     StreamConfig
 )
-from zebra_automate_logging import Logger
+from easy_logger import Logger
 
 
 class StreamServicer(StatStreamServerServicer):

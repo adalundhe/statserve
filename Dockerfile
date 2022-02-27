@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 RUN mkdir /data
 
-RUN pip install -i $PIP_INDEX_URL zebra-statserve
+RUN pip install -i $PIP_INDEX_URL statserve
 
 COPY scripts/* /
 COPY config/nginx/* /etc/nginx/

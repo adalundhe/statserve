@@ -3,7 +3,7 @@ import os
 import asyncio
 import uvloop
 uvloop.install()
-from zebra_automate_logging import Logger
+from easy_logger import Logger
 from concurrent import futures
 from .service import StreamServicer
 from .service.proto import (

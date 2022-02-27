@@ -11,7 +11,7 @@ with open(os.path.join(current_directory, 'README.md'), "r") as readme:
 
 setup(
     name="statserve",
-    version="0.1.3",
+    version="0.1.4",
     author="Sean Corbett",
     author_email="sean.corbett@umconnect.edu",
     description="Statserve is a microservices implementation of the statstream library.",

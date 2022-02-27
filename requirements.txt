@@ -33,6 +33,6 @@ snowflake-connector-python
 asyncio-pool
 selenium<4.0
 pycli-tools
-easy-logger
+easy-logger-py
 py3-async-tools
 statstream
